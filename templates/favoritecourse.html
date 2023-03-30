@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Course</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="base.html">Base</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Favorite Course</h1>
+        <div id="thankyou" style="display: none;">
+            <p>Thank you for submitting your favorite course! Here is the information you entered:</p>
+            <ul>
+                <li>Favorite Course: <span id="displayCourse"></span></li>
+                <li>Course Number: <span id="displayCourseNumber"></span></li>
+            </ul>
+        </div>
+        <form id="favoriteCourseForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="course">Enter your favorite course:</label>
+                <input type="text" class="form-control" id="course" name="course" placeholder="Enter your favorite course">
+                <label for="course_number">Enter course number:</label>
+                <input type="text" class="form-control" id="course_number" name="course_number"placeholder="Enter course number">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const favoriteCourse = document.getElementById("course").value;
+            const courseNumber = document.getElementById("course_number").value;
+
+            document.getElementById("displayCourse").textContent = favoriteCourse;
+            document.getElementById("displayCourseNumber").textContent = courseNumber;
+
+            document.getElementById("favoriteCourseForm").style.display = "none";
+            document.getElementById("thankyou").style.display = "block";
+        }
+    </script>
+</body>
+</html>
